@@ -1,19 +1,12 @@
 import { useState } from 'react';
 import ProjectListItem from "./ProjectListItem";
 
-const ProjectList = () => {
-  const [projects, setProjects] = useState([]);
+const ProjectList = ({projects, onLoadProjects}) => {
   const [searchQuery, setSearchQuery] = useState("")
 
   const handleClick = () => {
-    loadProjects();
+    onLoadProjects();
   };
-  
-  const loadProjects = () => {
-    fetch("http://localhost:4000/projects")
-      .then((res) => res.json())
-      .then((projects) => setProjects(projects));
-  }
 
   const handleSearch = (e) => {
     setSearchQuery(e.target.value)
