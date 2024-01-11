@@ -5,6 +5,9 @@ import ProjectList from "./ProjectList";
 
 const ProjectsContainer = () => {
   const [projects, setProjects] = useState([]);
+  const addProject = (newProject) => {
+    setProjects([...projects, newProject]);
+  }
 
   const loadProjects = () => {
     fetch("http://localhost:4000/projects")
@@ -14,7 +17,7 @@ const ProjectsContainer = () => {
 
   return (
     <>
-      <ProjectForm />
+      <ProjectForm onAddProject={addProject}/>
       <ProjectList
         onLoadProjects={loadProjects}
         projects={projects}
