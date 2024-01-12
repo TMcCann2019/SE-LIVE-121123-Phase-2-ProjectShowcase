@@ -24,7 +24,17 @@ const ProjectForm = ({ onAddProject }) => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    onAddProject(formData); 
+    const config = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    }
+    // onAddProject(formData); 
+    fetch("http://localhost:4000/projects", config) //could have wrote the actual config object here instead
+      .then((res) => res.json())
+      .then((newProject) => onAddProject(newProject));
     setFormData(initialState); 
   }
 

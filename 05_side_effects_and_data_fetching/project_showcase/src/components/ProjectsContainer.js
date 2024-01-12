@@ -14,7 +14,7 @@ const ProjectsContainer = () => {
 
   const addProject = (newProject) => {
     console.log("🚀 ~ addProject ~ newProject:", newProject);
-    newProject.id = projects[projects.length - 1].id + 1; 
+    //newProject.id = projects[projects.length - 1].id + 1; 
     setProjects([...projects, newProject]); 
   };
 
