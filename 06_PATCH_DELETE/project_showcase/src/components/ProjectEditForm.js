@@ -22,8 +22,18 @@ const ProjectEditForm = ({ projectToEdit, onUpdateProject }) => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    // Add code here
-    onUpdateProject();
+    const config = {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(formData)
+    }
+    fetch(`http://localhost:4000/projects/${projectToEdit.id}`, config)
+      .then((res) => res.json())
+      .then(updatedProject => onUpdateProject(updatedProject)); //Pessimistic rendering
+      //.then(onUpdateProject) //Shorthand for above
+    // onUpdateProject(formData); //Optimistically update the project in the database
   }
 
   return (
