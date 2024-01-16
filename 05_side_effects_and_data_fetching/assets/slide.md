@@ -189,8 +189,20 @@ useEffect(() => {
   - ✅ rework the search input so it makes calls to our api when we type in the input rather than filtering through local state in react {.fragment}
 
 
+---
+
+#### Our current component hierarchy diagram
+
+<img src="./component-hierarchy-with-current-data-flow.drawio.svg" alt="component hierarchy with current data flow diagram" style="height: 75vh" />
 
 ---
+
+#### Our new component hierarchy diagram
+
+<img src="./component-hierarchy-with-updated-data-flow.drawio.svg" alt="component hierarchy with updated data flow diagram" style="height: 75vh" />
+
+---
+
 
 ### Cleaning up 🧹 
 
